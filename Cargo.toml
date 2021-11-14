@@ -1,6 +1,6 @@
 [package]
 name = "clf"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["aki <aki.akaguma@hotmail.com>"]
 edition = "2018"
 description = "flush the cpu cache line by __builtin_clear_cache()"
