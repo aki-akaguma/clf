@@ -1,6 +1,8 @@
-TBD
+TBD: clf
 ===
 Unreleased changes. Release notes have not yet been written.
+
+* changes to edition 2021
 
 0.1.3 (2021-11-14)
 =====

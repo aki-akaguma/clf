@@ -2,7 +2,7 @@
 name = "clf"
 version = "0.1.3"
 authors = ["aki <aki.akaguma@hotmail.com>"]
-edition = "2018"
+edition = "2021"
 description = "flush the cpu cache line by __builtin_clear_cache()"
 keywords = ["memory", "flush", "clear"]
 categories = ["algorithms"]
