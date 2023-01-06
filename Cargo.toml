@@ -2,12 +2,13 @@
 name = "clf"
 version = "0.1.4"
 authors = ["aki <aki.akaguma@hotmail.com>"]
-edition = "2021"
 description = "flush the cpu cache line by __builtin_clear_cache()"
 keywords = ["memory", "flush", "clear"]
 categories = ["algorithms"]
 license = "MIT OR Apache-2.0"
 readme = "README.md"
+edition = "2021"
+rust-version = "1.56.0"
 repository = "https://github.com/aki-akaguma/clf"
 
 [dependencies]
