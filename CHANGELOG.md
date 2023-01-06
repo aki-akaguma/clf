@@ -1,25 +1,37 @@
-TBD: clf
-===
-Unreleased changes. Release notes have not yet been written.
+# Changelog: clf
 
-0.1.4 (2022-06-13)
-=====
+All notable changes to this project will be documented in this file.
 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased] *
+### Changed
+* reformat `CHANGELOG.md`
+
+
+## [0.1.4] (2022-06-13)
+### Changed
 * changes to edition 2021
 
-0.1.3 (2021-11-14)
-=====
+## [0.1.3] (2021-11-14)
+### Added
+* more documents
 
+### Changed
 * clean source codes
-* add more documents
 
-0.1.1 (2021-06-16)
-=====
-
+## [0.1.1] (2021-06-16)
+### Fixed
 * armv7-unknown-linux-musleabihf: can not compile: not found `__clear_cache()`
 * suppress this error by void function
 
-0.1.0 (2021-06-16)
-=====
+## [0.1.0] (2021-06-16)
+* first commit
 
-first commit
+[Unreleased]: https://github.com/aki-akaguma/clf/compare/v0.1.4..HEAD
+[0.1.4]: https://github.com/aki-akaguma/clf/compare/v0.1.3..v0.1.4
+[0.1.3]: https://github.com/aki-akaguma/clf/compare/v0.1.2..v0.1.3
+[0.1.2]: https://github.com/aki-akaguma/clf/compare/v0.1.1..v0.1.2
+[0.1.1]: https://github.com/aki-akaguma/clf/compare/v0.1.0..v0.1.1
+[0.1.0]: https://github.com/aki-akaguma/clf/releases/tag/v0.1.0
