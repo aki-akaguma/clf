@@ -1,5 +1,10 @@
 # clf
 
+[![crate][crate-image]][crate-link]
+[![Docs][docs-image]][docs-link]
+![Rust Version][rustc-image]
+![Apache2/MIT licensed][license-image]
+
 Flush the cpu cache line by `__builtin_clear_cache()`
 
 This crate can be used when you do benchmarks that are not dependent on the cpu cache.
@@ -51,3 +56,12 @@ This project is licensed under either of
    https://opensource.org/licenses/MIT)
 
 at your option.
+
+[//]: # (badges)
+
+[crate-image]: https://img.shields.io/crates/v/clf.svg
+[crate-link]: https://crates.io/crates/clf
+[docs-image]: https://docs.rs/clf/badge.svg
+[docs-link]: https://docs.rs/clf/
+[rustc-image]: https://img.shields.io/badge/rustc-1.56+-blue.svg
+[license-image]: https://img.shields.io/badge/license-Apache2.0/MIT-blue.svg

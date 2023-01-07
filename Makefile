@@ -13,7 +13,7 @@ all: readme
 
 readme: README.md
 
-README.md: src/lib.rs
+README.md: README.tpl src/lib.rs
 	cargo readme > $@
 
 test:
