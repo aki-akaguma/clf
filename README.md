@@ -20,6 +20,7 @@ This crate can be used when you do benchmarks that are not dependent on the cpu 
 ## Bugs
 
 - armv7-unknown-linux-musleabihf: can not compile
+- x86_64-pc-windows-msvc: can not compile
 
 ## Examples
 Easy to use:
