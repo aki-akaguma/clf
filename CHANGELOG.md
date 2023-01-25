@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 * Makefile: rustc version `1.66.0` to `1.66.1`
 * compile error on windows: cl : Command line warning D9002 : ignoring unknown option '-static'
+* `LICENSE` files
 
 
 ## [0.1.5] (2023-01-10)
