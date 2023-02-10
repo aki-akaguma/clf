@@ -1,3 +1,37 @@
+
+all: readme
+
+readme: README.md
+
+README.md: README.tpl src/lib.rs
+	cargo readme > $@
+
+test:
+	cargo test --offline
+
+test-no-default-features:
+	cargo test --offline --no-default-features
+
+miri:
+	cargo +nightly miri test --offline
+
+clean:
+	@cargo clean
+	@rm -f z.*
+
+clippy:
+	cargo clippy --offline --tests --workspace
+
+fmt:
+	cargo fmt
+
+doc:
+	cargo doc
+
+tarpaulin:
+	cargo tarpaulin --offline --engine llvm --out html --output-dir ./target
+
+
 rustc_vers = 1.56.1 1.57.0 1.58.1 1.59.0 1.60.0 1.61.0 1.62.1 1.63.0 \
 	1.64.0 1.65.0 1.66.1
 target_base = x86_64-unknown-linux-gnu i586-unknown-linux-gnu
@@ -8,20 +42,6 @@ target/stamp/stamp.test-rustc.$(1).$(2):
 	cargo +$(1) test --target=$(2)
 	@touch target/stamp/stamp.test-rustc.$(1).$(2)
 endef
-
-all: readme
-
-readme: README.md
-
-README.md: README.tpl src/lib.rs
-	cargo readme > $@
-
-test:
-	cargo test
-
-clean:
-	@cargo clean
-	@rm -f z.*
 
 test-all-version: $(foreach ver,$(rustc_vers),$(foreach tb,$(target_base),target/stamp/stamp.test-rustc.$(ver).$(tb)))
 
