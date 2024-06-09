@@ -63,7 +63,7 @@ pub fn cache_line_flush_with_slice<T>(slice: &[T]) {
 mod tests {
     #[test]
     fn it_works_1() {
-        let a = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         super::cache_line_flush_with_ptr(a.as_ptr(), unsafe { a.as_ptr().add(a.len()) });
         assert_eq!(2 + 2, 4);
     }

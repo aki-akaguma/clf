@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [0.1.9] (2024-06-09)
+### Fixed
+* clippy: clippy::useless_vec
+
 ## [0.1.8] (2024-06-09)
 ### Changed
 * rename: `config` to `config.toml`
@@ -66,7 +70,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] (2021-06-16)
 * first commit
 
-[Unreleased]: https://github.com/aki-akaguma/clf/compare/v0.1.8..HEAD
+[Unreleased]: https://github.com/aki-akaguma/clf/compare/v0.1.9..HEAD
+[0.1.9]: https://github.com/aki-akaguma/clf/compare/v0.1.8..v0.1.9
 [0.1.8]: https://github.com/aki-akaguma/clf/compare/v0.1.7..v0.1.8
 [0.1.7]: https://github.com/aki-akaguma/clf/compare/v0.1.6..v0.1.7
 [0.1.6]: https://github.com/aki-akaguma/clf/compare/v0.1.5..v0.1.6
