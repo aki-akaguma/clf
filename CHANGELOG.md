@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## [0.1.9] (2024-06-09)
+### Changed
+* minimum support version: `1.70.0`
+
 ### Fixed
 * clippy: clippy::useless_vec
 
