@@ -18,7 +18,7 @@ test:
 	cargo test --offline
 
 bench:
-	cargo bench --offline
+	cargo bench -p xbenche --offline
 
 test-no-default-features:
 	cargo test --offline --no-default-features

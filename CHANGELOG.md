@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Updated documentation to clarify the new data cache focus.
 * Renamed internal FFI symbol `_cache_line_flush` to `clf_fallback_clear_cache`.
 * Improved `build.rs` by removing hardcoded compiler paths and fixing deprecation warnings.
+* Moved benchmarking infrastructure to a separate workspace member `xbenche`.
 
 ### Fixed
 * `clippy::manual_slice_size_calculation`
