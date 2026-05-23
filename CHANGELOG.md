@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [0.2.0] (2026-05-23)
 ### Added
 * Native data cache flushing implementation for `x86_64` and `AArch64`.
 * `large_slice` test case.
@@ -26,7 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 * `clippy::manual_slice_size_calculation`
-
 
 ## [0.1.9] (2024-06-09)
 ### Changed
@@ -93,7 +95,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] (2021-06-16)
 * first commit
 
-[Unreleased]: https://github.com/aki-akaguma/clf/compare/v0.1.9..HEAD
+[Unreleased]: https://github.com/aki-akaguma/clf/compare/v0.2.0..HEAD
+[0.2.0]: https://github.com/aki-akaguma/clf/compare/v0.1.9..v0.2.0
 [0.1.9]: https://github.com/aki-akaguma/clf/compare/v0.1.8..v0.1.9
 [0.1.8]: https://github.com/aki-akaguma/clf/compare/v0.1.7..v0.1.8
 [0.1.7]: https://github.com/aki-akaguma/clf/compare/v0.1.6..v0.1.7
