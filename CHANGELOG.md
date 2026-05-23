@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Marked `cache_line_flush_with_ptr` as `unsafe` for improved API safety.
 * Updated documentation to clarify the new data cache focus.
 * Renamed internal FFI symbol `_cache_line_flush` to `clf_fallback_clear_cache`.
+* Improved `build.rs` by removing hardcoded compiler paths and fixing deprecation warnings.
 
 ### Fixed
 * `clippy::manual_slice_size_calculation`

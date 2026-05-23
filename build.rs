@@ -1,39 +1,20 @@
-// build.rs
-
 fn main() {
-    compile_c_src();
-}
+    let target = std::env::var("TARGET").unwrap_or_default();
+    let use_void = target.contains("msvc") || target.contains("armv7-unknown-linux-musleabihf");
 
-fn compile_c_src() {
-    println!("cargo:rerun-if-changed=src/c/clf.c");
-    //
-    let env_target = std::env::var("TARGET").unwrap();
-    if env_target.as_str() == "x86_64-pc-windows-msvc" {
-        cc::Build::new()
-            .file("src/c/clf-void.c")
-            .flag_if_supported("-Wno-unused-function")
-            .flag_if_supported("-Wno-unused-parameter")
-            .compile("libclf.a");
-    } else if env_target.as_str() != "armv7-unknown-linux-musleabihf" {
-        cc::Build::new()
-            .file("src/c/clf.c")
-            .flag_if_supported("-Wno-unused-function")
-            //.shared_flag(true)
-            //.static_flag(true)
-            //.static_crt(true)
-            .compile("libclf.a");
+    let mut build = cc::Build::new();
+
+    if use_void {
+        build.file("src/c/clf-void.c");
     } else {
-        std::env::set_var(
-            "CC_armv7-unknown-linux-musleabihf",
-            "arm-linux-gnueabihf-gcc",
-        );
-        cc::Build::new()
-            .file("src/c/clf-void.c")
-            .flag_if_supported("-Wno-unused-function")
-            .flag_if_supported("-Wno-unused-parameter")
-            //.shared_flag(true)
-            //.static_flag(true)
-            //.static_crt(true)
-            .compile("libclf.a");
+        build.file("src/c/clf.c");
     }
+
+    build
+        .flag_if_supported("-Wno-unused-function")
+        .flag_if_supported("-Wno-unused-parameter")
+        .compile("clf");
+
+    println!("cargo:rerun-if-changed=src/c/clf.c");
+    println!("cargo:rerun-if-changed=src/c/clf-void.c");
 }
