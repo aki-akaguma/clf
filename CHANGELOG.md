@@ -10,7 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Native data cache flushing implementation for `x86_64` and `AArch64`.
 * `large_slice` test case.
 * Benchmarking infrastructure using `Criterion.rs` to measure cache flush effectiveness.
-* Added `dsb ish` memory barrier to `AArch64` implementation for proper synchronization.
+* `dsb ish` memory barrier to `AArch64` implementation for proper synchronization.
+* Added runtime CPU cache line size detection for `x86_64`.
+* Adopted a fixed 64-byte cache line size for `AArch64` to avoid `SIGILL` on macOS due to restricted `mrs` instruction access.
+
 
 ### Changed
 * Switched focus from instruction cache synchronization to data cache flushing.

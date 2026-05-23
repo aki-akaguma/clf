@@ -52,6 +52,42 @@ extern "C" {
 }
 
 ///
+/// get the cpu cache line size.
+///
+fn get_cache_line_size() -> usize {
+    use core::sync::atomic::{AtomicUsize, Ordering};
+    static CACHE_LINE_SIZE: AtomicUsize = AtomicUsize::new(0);
+
+    let size = CACHE_LINE_SIZE.load(Ordering::Relaxed);
+    if size != 0 {
+        return size;
+    }
+
+    let detected_size = detect_cache_line_size();
+    CACHE_LINE_SIZE.store(detected_size, Ordering::Relaxed);
+    detected_size
+}
+
+fn detect_cache_line_size() -> usize {
+    #[cfg(target_arch = "x86_64")]
+    {
+        // CPUID leaf 1, EBX bits 15:8 contains the CLFLUSH line size in 8-byte increments
+        #[allow(unused_unsafe)]
+        let cpuid = unsafe { core::arch::x86_64::__cpuid(1) };
+        let size = ((cpuid.ebx >> 8) & 0xff) as usize * 8;
+        if size != 0 {
+            return size;
+        }
+    }
+
+    // AArch64 usually has 64-byte lines.
+    // We avoid using `mrs ctr_el0` as it's restricted on some platforms (like macOS).
+
+    // Default value (most common on modern CPUs)
+    64
+}
+
+///
 /// flush the data cache line, this parameters are pointers.
 ///
 /// # Safety
@@ -60,20 +96,22 @@ extern "C" {
 pub unsafe fn cache_line_flush_with_ptr(begin_ptr: *const u8, end_ptr: *const u8) {
     #[cfg(target_arch = "x86_64")]
     {
+        let size = get_cache_line_size();
         let mut ptr = begin_ptr;
         while ptr < end_ptr {
             _mm_clflush(ptr);
-            ptr = ptr.add(64);
+            ptr = ptr.add(size);
         }
     }
 
     #[cfg(target_arch = "aarch64")]
     {
+        let size = get_cache_line_size();
         let mut ptr = begin_ptr as usize;
         let end = end_ptr as usize;
         while ptr < end {
             core::arch::asm!("dc civac, {0}", in(reg) ptr, options(nostack, preserves_flags));
-            ptr += 64;
+            ptr += size;
         }
         core::arch::asm!("dsb ish", options(nostack, preserves_flags));
     }
