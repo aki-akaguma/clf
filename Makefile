@@ -17,6 +17,9 @@ README.md: README.tpl src/lib.rs
 test:
 	cargo test --offline
 
+bench:
+	cargo bench --offline
+
 test-no-default-features:
 	cargo test --offline --no-default-features
 

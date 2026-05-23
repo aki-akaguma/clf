@@ -30,6 +30,16 @@ unsafe { clf::cache_line_flush_with_ptr(begin_ptr, end_ptr) };
 
 [CPU cache](https://en.wikipedia.org/wiki/CPU_cache)
 
+# Benchmarking
+
+To measure the effectiveness of the cache flushing, you can run the included benchmarks:
+
+```text
+make bench
+```
+
+This will compare the access time of "warm" data versus "flushed" data.
+
 */
 
 #[cfg(target_arch = "x86_64")]
