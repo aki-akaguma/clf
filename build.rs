@@ -19,7 +19,8 @@ fn compile_c_src() {
             .file("src/c/clf.c")
             .flag_if_supported("-Wno-unused-function")
             //.shared_flag(true)
-            .static_flag(true)
+            //.static_flag(true)
+            //.static_crt(true)
             .compile("libclf.a");
     } else {
         std::env::set_var(
@@ -31,7 +32,8 @@ fn compile_c_src() {
             .flag_if_supported("-Wno-unused-function")
             .flag_if_supported("-Wno-unused-parameter")
             //.shared_flag(true)
-            .static_flag(true)
+            //.static_flag(true)
+            //.static_crt(true)
             .compile("libclf.a");
     }
 }

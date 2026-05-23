@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-* Native data cache flushing implementation for x86_64 and AArch64.
+* Native data cache flushing implementation for `x86_64` and `AArch64`.
 * `large_slice` test case.
 
 ### Changed
@@ -15,12 +15,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Marked `cache_line_flush_with_ptr` as `unsafe` for improved API safety.
 * Updated documentation to clarify the new data cache focus.
 
+### Fixed
+* `clippy::manual_slice_size_calculation`
+
+
 ## [0.1.9] (2024-06-09)
 ### Changed
 * minimum support version: `1.70.0`
 
 ### Fixed
-* clippy: clippy::useless_vec
+* `clippy::useless_vec`
 
 ## [0.1.8] (2024-06-09)
 ### Changed

@@ -77,7 +77,7 @@ pub unsafe fn cache_line_flush_with_ptr(begin_ptr: *const u8, end_ptr: *const u8
 ///
 pub fn cache_line_flush_with_slice<T>(slice: &[T]) {
     let begin_ptr = slice.as_ptr() as *const u8;
-    let end_ptr = unsafe { begin_ptr.add(slice.len() * core::mem::size_of::<T>()) };
+    let end_ptr = unsafe { begin_ptr.add(core::mem::size_of_val(slice)) };
     unsafe { cache_line_flush_with_ptr(begin_ptr, end_ptr) };
 }
 
