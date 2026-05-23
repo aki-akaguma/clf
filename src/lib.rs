@@ -47,7 +47,8 @@ use core::arch::x86_64::_mm_clflush;
 
 #[link(name = "clf")]
 extern "C" {
-    fn _cache_line_flush(begin_ptr: *const u8, end_ptr: *const u8);
+    #[allow(dead_code)]
+    fn clf_fallback_clear_cache(begin_ptr: *const u8, end_ptr: *const u8);
 }
 
 ///
@@ -74,6 +75,7 @@ pub unsafe fn cache_line_flush_with_ptr(begin_ptr: *const u8, end_ptr: *const u8
             core::arch::asm!("dc civac, {0}", in(reg) ptr, options(nostack, preserves_flags));
             ptr += 64;
         }
+        core::arch::asm!("dsb ish", options(nostack, preserves_flags));
     }
 
     #[cfg(not(any(target_arch = "x86_64", target_arch = "aarch64")))]

@@ -10,12 +10,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Native data cache flushing implementation for `x86_64` and `AArch64`.
 * `large_slice` test case.
 * Benchmarking infrastructure using `Criterion.rs` to measure cache flush effectiveness.
+* Added `dsb ish` memory barrier to `AArch64` implementation for proper synchronization.
 
 ### Changed
 * Switched focus from instruction cache synchronization to data cache flushing.
 * Marked `cache_line_flush_with_ptr` as `unsafe` for improved API safety.
 * Updated documentation to clarify the new data cache focus.
-* Renamed internal FFI symbol `_cache_line_flush` to `clf_fallback_clear_cache`.
+* Renamed internal FFI symbol `_cache_line_flush` to `clf_fallback_clear_cache` and fixed its declaration in Rust.
+* Suppressed `dead_code` warning for fallback FFI declaration on non-fallback architectures.
 * Improved `build.rs` by removing hardcoded compiler paths and fixing deprecation warnings.
 * Moved benchmarking infrastructure to a separate workspace member `xbenche`.
 
