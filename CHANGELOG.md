@@ -7,7 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-* `specs`
+* Native data cache flushing implementation for x86_64 and AArch64.
+* `large_slice` test case.
+
+### Changed
+* Switched focus from instruction cache synchronization to data cache flushing.
+* Marked `cache_line_flush_with_ptr` as `unsafe` for improved API safety.
+* Updated documentation to clarify the new data cache focus.
 
 ## [0.1.9] (2024-06-09)
 ### Changed

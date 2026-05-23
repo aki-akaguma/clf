@@ -8,37 +8,31 @@
 [![Test mac][test-windows-image]][test-windows-link]
 [![Test win][test-macos-image]][test-macos-link]
 
-Flush the cpu cache line by `__builtin_clear_cache()`
+Flush the data cache line.
 
 This crate can be used when you do benchmarks that are not dependent on the cpu cache.
 
 ## Supports
 
-- gcc and clang
-- gnu and musl
-- x86_64, aarch64, mips64el, powerpc64le ... etc
-- minimum support rustc 1.56.1 (59eed8a2a 2021-11-01)
-
-## Bugs
-
-- armv7-unknown-linux-musleabihf: can not compile
-- x86_64-pc-windows-msvc: can not compile
+- x86_64, aarch64 (native implementation)
+- mips64el, powerpc64le ... etc (fallback to `__builtin_clear_cache`)
+- minimum support rustc 1.70.0 (due to `core::arch` and `asm!`)
 
 ## Examples
 Easy to use:
 
-```
+```rust
 let a = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
 clf::cache_line_flush_with_slice(&a);
 ```
 
 or
 
-```
+```rust
 let a = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
 let begin_ptr = a.as_ptr();
 let end_ptr = unsafe { begin_ptr.add(a.len()) };
-clf::cache_line_flush_with_ptr(begin_ptr, end_ptr);
+unsafe { clf::cache_line_flush_with_ptr(begin_ptr, end_ptr) };
 ```
 
 ## References
