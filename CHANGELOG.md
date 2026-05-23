@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Switched focus from instruction cache synchronization to data cache flushing.
 * Marked `cache_line_flush_with_ptr` as `unsafe` for improved API safety.
 * Updated documentation to clarify the new data cache focus.
+* Renamed internal FFI symbol `_cache_line_flush` to `clf_fallback_clear_cache`.
 
 ### Fixed
 * `clippy::manual_slice_size_calculation`

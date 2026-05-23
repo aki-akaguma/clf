@@ -4,7 +4,7 @@
 // for clang
 // extern void __builtin___clear_cache (char *begin, char *end);
 
-void _cache_line_flush(unsigned char *begin, unsigned char *end)
+void clf_fallback_clear_cache(unsigned char *begin, unsigned char *end)
 {
     // NOTHING TODO
 }

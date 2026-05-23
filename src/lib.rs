@@ -68,7 +68,7 @@ pub unsafe fn cache_line_flush_with_ptr(begin_ptr: *const u8, end_ptr: *const u8
 
     #[cfg(not(any(target_arch = "x86_64", target_arch = "aarch64")))]
     {
-        _cache_line_flush(begin_ptr, end_ptr);
+        clf_fallback_clear_cache(begin_ptr, end_ptr);
     }
 }
 
