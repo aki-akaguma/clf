@@ -1,5 +1,5 @@
-use criterion::{black_box, criterion_group, criterion_main, Criterion};
-use std::time::{Duration, Instant};
+use criterion::{criterion_group, criterion_main, Criterion};
+use std::hint::black_box;
 
 fn bench_effectiveness(c: &mut Criterion) {
     let size = 1024 * 1024 * 32; // 32MB
@@ -17,15 +17,26 @@ fn bench_effectiveness(c: &mut Criterion) {
     // Flushed access: We flush the cache before each iteration.
     // We use iter_custom to measure only the summation time, excluding the flush time.
     group.bench_function("sum_after_flush", |b| {
+        b.iter(|| {
+            // Flush the data cache
+            clf::cache_line_flush_with_slice(&data);
+
+            let sum: u64 = black_box(&data).iter().map(|&x| x as u64).sum();
+            black_box(sum);
+        })
+    });
+    /*
+    group.bench_function("sum_after_flush", |b| {
         b.iter_custom(|iters| {
+            use std::time::{Duration, Instant};
             let mut total = Duration::from_secs(0);
             for _ in 0..iters {
                 // Ensure data is in a known state (warm) before flushing to be consistent
                 black_box(&data).iter().map(|&x| x as u64).sum::<u64>();
-                
+
                 // Flush the data cache
                 clf::cache_line_flush_with_slice(&data);
-                
+
                 let start = Instant::now();
                 let sum: u64 = black_box(&data).iter().map(|&x| x as u64).sum();
                 total += start.elapsed();
@@ -34,7 +45,8 @@ fn bench_effectiveness(c: &mut Criterion) {
             total
         })
     });
-    
+    */
+
     group.finish();
 }
 

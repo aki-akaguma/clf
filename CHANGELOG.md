@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-* xbench: update crate: memchr(2.8), clf(0.2)
+* xbench: update crate: memchr(2.8), clf(0.2), criterion(0.8)
 
 
 ## [0.2.0] (2026-05-23)
