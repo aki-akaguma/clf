@@ -6,9 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+
+## [0.2.1] (2026-05-27)
 ### Changed
 * xbench: update crate: memchr(2.8), clf(0.2), criterion(0.8)
-
 
 ## [0.2.0] (2026-05-23)
 ### Added
@@ -97,7 +99,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] (2021-06-16)
 * first commit
 
-[Unreleased]: https://github.com/aki-akaguma/clf/compare/v0.2.0..HEAD
+[Unreleased]: https://github.com/aki-akaguma/clf/compare/v0.2.1..HEAD
+[0.2.1]: https://github.com/aki-akaguma/clf/compare/v0.2.0..v0.2.1
 [0.2.0]: https://github.com/aki-akaguma/clf/compare/v0.1.9..v0.2.0
 [0.1.9]: https://github.com/aki-akaguma/clf/compare/v0.1.8..v0.1.9
 [0.1.8]: https://github.com/aki-akaguma/clf/compare/v0.1.7..v0.1.8
